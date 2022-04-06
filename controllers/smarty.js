@@ -18,7 +18,7 @@ smarty.get('/', async (req, res) => {
     let apiCall = `${url}${ask}${auth}`
     let response = await fetch(apiCall, options);
     let address = await response.json()
-    console.log(address)
+    console.log('Single:', address)
     res.json(address)
   } else {
     res.status(404).send("<h1>Missing 'street' Parameter</h1>");
@@ -37,6 +37,7 @@ smarty.post('/', async (req, res) => {
   let apiCall = `${url}${auth}`
   let response = await fetch(apiCall, options);
   let addresses = await response.json()
+  console.log('Multiple:', addresses)
   res.json(addresses)
 })
 
